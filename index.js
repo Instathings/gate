@@ -11,8 +11,9 @@ const keyPath = path.join(__dirname, 'config', 'private.key');
 const certPath = path.join(__dirname, 'config', 'certificate.pem');
 const caPath = path.join(__dirname, 'config', 'awsRootCA1.pem');
 const host = process.env.HOST;
-const clientId = `${process.env.NODE_ENV}-${process.env.PARENT_DEVICE_ID}`;
 
+const clientId = `${process.env.NODE_ENV}-${process.env.PARENT_DEVICE_ID}`;
+const discoverTopic = `${process.env.NODE_ENV}-discover/${process.env.PROJECT_ID}/${clientId}`;
 const options = {
   keyPath,
   certPath,
@@ -30,6 +31,9 @@ const device = awsIot.device(options);
 
 device.on('connect', () => {
   debug('Connected');
+  device.subscribe(discoverTopic, (err, granted) => {
+    debug(err, granted, 'subscribe ok');
+  });
 });
 
 device.on('disconnect', () => {
@@ -42,4 +46,11 @@ device.on('error', (err) => {
 
 device.on('reconnect', () => {
   debug('Reconnect');
+});
+
+device.on('message', (topicName, payload) => {
+  const topicMess = JSON.parse(payload.toString());
+  console.log('message', topicName, topicMess);
+  // const topic = topicMess.topic;
+  // const idIn = topicMess.idIn;
 });

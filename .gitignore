@@ -88,6 +88,9 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
+# certificates
+config/
+
 # End of https://www.gitignore.io/api/node
 
 sslCert/

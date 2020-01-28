@@ -1,8 +1,11 @@
-const configFile = `${__dirname}/config/.env`;
-require('dotenv').config({ path: configFile });
-const awsIot = require('aws-iot-device-sdk');
+const debug = require('debug')('gate');
 const _ = require('lodash');
+const awsIot = require('aws-iot-device-sdk');
 const path = require('path');
+const dotenv = require('dotenv');
+
+const configFile = `${__dirname}/config/.env`;
+dotenv.config({ path: configFile });
 
 const keyPath = path.join(__dirname, 'config', 'private.key');
 const certPath = path.join(__dirname, 'config', 'certificate.pem');
@@ -17,27 +20,26 @@ const options = {
   clientId,
   host,
   region: 'eu-west-1',
-  //debug: true,
 };
-//console.log(options);
+
+if (process.env.DEBUG === 'gate') {
+  _.set(options, 'debug', true);
+}
+
 const device = awsIot.device(options);
 
 device.on('connect', () => {
-  console.log('connect online');
-  console.log('cronJob start');
+  debug('Connected');
 });
 
 device.on('disconnect', () => {
-  //cronJob.stop();
-  console.log('cronJob stop');
+  debug('Disconnected');
 });
 
 device.on('error', (err) => {
-  console.log(err);
+  debug('Error', err);
 });
 
 device.on('reconnect', () => {
-  //cronJob.start();
-  console.log('cronJob restart');
+  debug('Reconnect');
 });
-

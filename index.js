@@ -3,7 +3,7 @@ const _ = require('lodash');
 const awsIot = require('aws-iot-device-sdk');
 const path = require('path');
 const dotenv = require('dotenv');
-const handleMessage = require('./handleMessage');
+const handleMessageFn = require('./handleMessage');
 
 const configFile = `${__dirname}/config/.env`;
 dotenv.config({ path: configFile });
@@ -49,4 +49,5 @@ device.on('reconnect', () => {
   debug('Reconnect');
 });
 
+const handleMessage = handleMessageFn(device);
 device.on('message', handleMessage);

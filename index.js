@@ -23,7 +23,7 @@ const options = {
   host,
   region: 'eu-west-1',
 };
-
+debug(options);
 if (process.env.DEBUG === 'gate') {
   _.set(options, 'debug', true);
 }

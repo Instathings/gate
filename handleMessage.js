@@ -10,7 +10,7 @@ module.exports = function handleMessage(device) {
     const { deviceType } = topicMess;
     const { addOn } = topicMess;
 
-    return initAddOn(addOn, deviceType, (err, addOnInstance) => {
+    return initAddOn(addOn, (err, addOnInstance) => {
       addOnInstance.start();
       console.log('start discovering ble device...')
       // return publishData(device, topic, () => {

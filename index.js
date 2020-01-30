@@ -8,6 +8,8 @@ const handleMessageFn = require('./handleMessage');
 const configFile = `${__dirname}/config/.env`;
 dotenv.config({ path: configFile });
 
+const listDevices = require('./listDevices');
+
 const keyPath = path.join(__dirname, 'config', 'private.key');
 const certPath = path.join(__dirname, 'config', 'certificate.pem');
 const caPath = path.join(__dirname, 'config', 'awsRootCA1.pem');
@@ -49,5 +51,6 @@ device.on('reconnect', () => {
   debug('Reconnect');
 });
 
-const handleMessage = handleMessageFn(device);
+const knownDevices = listDevices();
+const handleMessage = handleMessageFn(device, knownDevices);
 device.on('message', handleMessage);

@@ -1,10 +1,11 @@
 const debug = require('debug');
 const installAddOn = require('./installAddOn');
 
-module.exports = function initAddOn(addOn, callback) {
+module.exports = function initAddOn(addOn, knownDevices, callback) {
   try {
     const GateAddOnClass = require(addOn);
-    const addOnInstance = new GateAddOnClass();
+    console.log('known devi', knownDevices);
+    const addOnInstance = new GateAddOnClass(knownDevices);
     console.log('created device instance');
     return callback(null, addOnInstance);
   } catch (error) {

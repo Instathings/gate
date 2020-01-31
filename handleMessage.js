@@ -10,7 +10,7 @@ module.exports = function handleMessage(device, knownDevices) {
     const { idIn } = topicMess;
     const { deviceType } = topicMess;
     const { addOn } = topicMess;
-    const onNewDevice = onNewDeviceFn(knownDevices, idIn, topic);
+    const onNewDevice = onNewDeviceFn(knownDevices, idIn, topic, addOn);
 
     return initAddOn(addOn, knownDevices, (err, addOnInstance) => {
       addOnInstance.init();

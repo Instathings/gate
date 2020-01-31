@@ -1,6 +1,6 @@
 const { spawn } = require('child_process');
 
-module.exports = function installAddOn(addOn, callback) {
+module.exports = function installAddOn(addOn, knownDevices, callback) {
   console.log('installing add-on...')
   const ls = spawn('npm', ['i', addOn]);
 
@@ -20,7 +20,7 @@ module.exports = function installAddOn(addOn, callback) {
   ls.on('close', (code) => {
     console.log(`child process exited with code ${code}`);
     const GateAddOnSensorTag = require(addOn);
-    const gAddSensorTag = new GateAddOnSensorTag();
+    const gAddSensorTag = new GateAddOnSensorTag(knownDevices);
     return callback(null, gAddSensorTag);
   });
 };

@@ -8,6 +8,9 @@ const handleMessageFn = require('./handleMessage');
 const configFile = `${__dirname}/config/.env`;
 dotenv.config({ path: configFile });
 
+const listDevices = require('./listDevices');
+const startRoutine = require('./startRoutine');
+
 const keyPath = path.join(__dirname, 'config', 'private.key');
 const certPath = path.join(__dirname, 'config', 'certificate.pem');
 const caPath = path.join(__dirname, 'config', 'awsRootCA1.pem');
@@ -23,18 +26,20 @@ const options = {
   host,
   region: 'eu-west-1',
 };
-
+debug(options);
 if (process.env.DEBUG === 'gate') {
   _.set(options, 'debug', true);
 }
 
 const device = awsIot.device(options);
+const knownDevices = listDevices();
 
 device.on('connect', () => {
   debug('Connected');
   device.subscribe(discoverTopic, (err, granted) => {
     debug(err, granted, 'subscribe ok');
   });
+  startRoutine(device, knownDevices);
 });
 
 device.on('disconnect', () => {
@@ -49,5 +54,5 @@ device.on('reconnect', () => {
   debug('Reconnect');
 });
 
-const handleMessage = handleMessageFn(device);
+const handleMessage = handleMessageFn(device, knownDevices);
 device.on('message', handleMessage);

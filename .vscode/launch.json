@@ -14,7 +14,8 @@
       "program": "${workspaceFolder}/index.js",
       "env": {
         "MQTT_USERNAME": "mqtt_user",
-        "MQTT_PASSWORD": "password"
+        "MQTT_PASSWORD": "password",
+        "DEGUG": "*"
       },
     }
   ]

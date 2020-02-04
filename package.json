@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "DEBUG=gate ./node_modules/nodemon/bin/nodemon.js index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "DEBUG=gate ./node_modules/nodemon/bin/nodemon.js index.js"
   },
   "author": "",
   "license": "ISC",

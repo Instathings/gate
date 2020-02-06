@@ -2,7 +2,7 @@
 cd /home/gate/service
 mkdir mosquitto && cd mosquitto
 mkdir config && mkdir data && mkdir log
-cp mosquitto/mosquitto.config /home/gate/service/config
+cp /home/gate/installScripts/zigbee/mosquitto/mosquitto.conf /home/gate/service/config
 # mosquitto container
 docker run -it \
 -p 1883:1883 -p 9001:9001 \

@@ -6,7 +6,7 @@ cp /home/node/gate/installScripts/zigbee/mosquitto/mosquitto.conf /home/node/gat
 # mosquitto container
 docker run -dt \
 -p 1883:1883 -p 9001:9001 \
--v ~/service/mosquitto/config:/mosquitto/config \
--v ~/service/mosquitto/data:/mosquitto/data \
--v ~/service/mosquitto/log:/mosquitto/log \
+-v ~/gate/service/mosquitto/config:/mosquitto/config \
+-v ~/gate/service/mosquitto/data:/mosquitto/data \
+-v ~/gate/service/mosquitto/log:/mosquitto/log \
  eclipse-mosquitto

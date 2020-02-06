@@ -1,5 +1,5 @@
 # mosquitto configuration
-cd /home/gate/service
+cd /home/node/gate/service
 mkdir mosquitto && cd mosquitto
 mkdir config && mkdir data && mkdir log
 cp /home/node/gate/installScripts/zigbee/mosquitto/mosquitto.conf /home/node/gate/service/mosquitto/config

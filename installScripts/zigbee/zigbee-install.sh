@@ -1,7 +1,10 @@
 # mosquitto configuration
 cd /home/node/gate/service
-mkdir mosquitto && cd mosquitto
-mkdir config && mkdir data && mkdir log
+mkdir mosquitto
+cd mosquitto
+mkdir config
+mkdir data
+mkdir log
 chmod -R 777 config
 chmod -R 777 data
 chmod -R 777 log

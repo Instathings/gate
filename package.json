@@ -1,25 +1,28 @@
 {
-  "name": "raspberry-vision",
+  "name": "gate",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "DEBUG=gate ./node_modules/nodemon/bin/nodemon.js index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "DEBUG=gate ./node_modules/nodemon/bin/nodemon.js index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@instathings/gate-addon-sensortag": "0.0.10",
+    "@instathings/gate-addon-zigbee": "0.0.1",
     "async": "^3.1.0",
     "aws-iot-device-sdk": "^2.2.1",
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "request": "^2.88.0",
+    "shelljs": "^0.8.3"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-import": "^2.20.1",
     "nodemon": "^2.0.2"
   }
 }

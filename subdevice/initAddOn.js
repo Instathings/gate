@@ -5,7 +5,6 @@ module.exports = function initAddOn(addOn, knownDevices, callback) {
   let GateAddOnClass;
   try {
     GateAddOnClass = require(addOn);
-
   } catch (error) {
     console.log('ERRRR', error);
     return installAddOn(addOn, knownDevices, (err, addOnInstance) => {

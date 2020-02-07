@@ -16,3 +16,16 @@ docker run -dt \
 -v /home/$HOST_USERNAME/service/mosquitto/data:/mosquitto/data \
 -v /home/$HOST_USERNAME/service/mosquitto/log:/mosquitto/log \
  eclipse-mosquitto
+
+# zigbee2mqtt
+cp /home/node/gate/installScripts/zigbee/zigbee2mqtt/configuration.yaml /home/node/gate/service/zigbee2mqtt/data
+
+docker run \
+   -dt \
+   -v /home/$HOST_USERNAME/service/zigbee2mqtt/data:/app/data \
+   --net=host \
+   --device=/dev/ttyACM0 \
+   -e TZ=GMT \
+   -v /run/udev:/run/udev:ro \
+   --privileged=true \
+   koenkk/zigbee2mqtt

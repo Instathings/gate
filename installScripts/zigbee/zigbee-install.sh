@@ -18,7 +18,13 @@ docker run -dt \
  eclipse-mosquitto
 
 # zigbee2mqtt
-cp /home/node/gate/installScripts/zigbee/zigbee2mqtt/configuration.yaml /home/node/gate/service/zigbee2mqtt/data
+cd /home/node/gate/service
+mkdir zigbee2mqtt
+chmod -R 777 zigbee2mqtt
+cd zigbee2mqtt
+mkdir data
+chmod -R 777 data
+cp /home/node/gate/installScripts/zigbee/zigbee2mqtt/configuration.yaml /home/node/gate/service/zigbee2mqtt/data/configuration.yaml
 
 docker run \
    -dt \

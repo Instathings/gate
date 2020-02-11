@@ -54,5 +54,5 @@ device.on('reconnect', () => {
   debug('Reconnect');
 });
 
-const handleMessage = handleMessageFn(device, knownDevices);
+const handleMessage = handleMessageFn(device, knownDevices, discoverTopic);
 device.on('message', handleMessage);

@@ -12,7 +12,7 @@ module.exports = function handleMessageFn(device, knownDevices) {
       }
       case 'addProtocol': {
         console.log('add protocol');
-        installProtocol(topicMess);
+        installProtocol(device, topicMess, topicName);
         break;
       }
       default: {

@@ -17,7 +17,7 @@ const caPath = path.join(__dirname, 'config', 'awsRootCA1.pem');
 const host = process.env.HOST;
 
 const clientId = `${process.env.NODE_ENV}-${process.env.PARENT_DEVICE_ID}`;
-const discoverTopic = `${process.env.NODE_ENV}-discover/${process.env.PROJECT_ID}/${clientId}`;
+const discoverBaseTopic = `${process.env.NODE_ENV}-discover/${process.env.PROJECT_ID}/${clientId}`;
 const options = {
   keyPath,
   certPath,
@@ -26,18 +26,17 @@ const options = {
   host,
   region: 'eu-west-1',
 };
-debug(options);
-if (process.env.DEBUG === 'gate') {
-  _.set(options, 'debug', true);
-}
 
 const device = awsIot.device(options);
 const knownDevices = listDevices();
 
 device.on('connect', () => {
   debug('Connected');
-  device.subscribe(discoverTopic, (err, granted) => {
-    debug(err, granted, 'subscribe ok');
+  device.subscribe(`${discoverBaseTopic}/#`, (err) => {
+    if (err) {
+      debug(`Error during subscribe ${err.message}`);
+    }
+    debug(`Subscribed to topic ${discoverBaseTopic}/#`);
   });
   startRoutine(device, knownDevices);
 });
@@ -54,5 +53,5 @@ device.on('reconnect', () => {
   debug('Reconnect');
 });
 
-const handleMessage = handleMessageFn(device, knownDevices, discoverTopic);
+const handleMessage = handleMessageFn(device, knownDevices, discoverBaseTopic);
 device.on('message', handleMessage);

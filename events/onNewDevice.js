@@ -7,13 +7,12 @@ module.exports = function onNewDeviceFn(knownDevices, id, topic, addOn) {
     const { protocol } = newDevice;
     const devices = knownDevices[protocol];
     _.unset(newDevice, 'protocol');
-    const device =
-    {
+    const device = {
       id,
       topic,
       addOn,
       ...newDevice,
-    }
+    };
     if (!devices) {
       _.set(knownDevices, protocol, [device]);
     } else {

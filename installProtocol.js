@@ -1,24 +1,18 @@
-
 const shell = require('shelljs');
-const publishResponse = require('./publishProtocolResponse');
 
-module.exports = function installProtocol(device, topicMess, topicName) {
-  console.log('TOPIC RESPONSE', topicName);
-  const { protocol } = topicMess;
+module.exports = function installProtocol(topic, protocol, protocolId, device) {
   const filename = `${__dirname}/installScripts/${protocol}/${protocol}-install.sh`;
   shell.exec(`bash ${filename}`, (code, stdout, stderr) => {
     const installResponse = {
+      dt_install: new Date().getTime(),
       protocol,
+      protocolId,
       exitStatus: code,
+      installationSuccess: code === 0,
+      stdout,
+      stderr,
     };
-    if (code !== 0) {
-      installResponse.output = stderr;
-      installResponse.installationSuccess = false;
-      device.publish(topicName, JSON.stringify(installResponse));
-      console.log(stderr);
-    }
-    installResponse.output = stdout;
-    installResponse.installationSuccess = true;
-    device.publish(topicName, JSON.stringify(installResponse));
+    const responseTopic = topic.replace('/post', '');
+    device.publish(responseTopic, JSON.stringify(installResponse));
   });
 };

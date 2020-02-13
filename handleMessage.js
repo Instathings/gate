@@ -11,7 +11,7 @@ module.exports = function handleMessageFn(device, knownDevices, discoverBaseTopi
 
     switch (topicName) {
       case `${discoverBaseTopic}/device/post`: {
-        pairSubdevice(device, message, knownDevices);
+        pairSubdevice(topicName, device, message, knownDevices);
         break;
       }
       case `${discoverBaseTopic}/protocol/post`: {

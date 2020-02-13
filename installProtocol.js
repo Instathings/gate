@@ -2,7 +2,8 @@ const shell = require('shelljs');
 
 module.exports = function installProtocol(topic, protocol, protocolId, device) {
   const filename = `${__dirname}/installScripts/${protocol}/${protocol}-install.sh`;
-  shell.exec(`bash ${filename}`, (code, stdout, stderr) => {
+  const script = process.env.NODE_ENV === 'development' ? 'echo OK' : `bash ${filename}`;
+  shell.exec(script, (code, stdout, stderr) => {
     const installResponse = {
       dt_install: new Date().getTime(),
       protocol,

@@ -1,7 +1,8 @@
-const _ = require('lodash');
+const debug = require('debug')('gate');
 
 module.exports = function publishData(device, data, topic, callback) {
-  console.log('PUBLISH', JSON.stringify(data), topic);
+  debug(`Publish data on ${topic}`);
+  debug(JSON.stringify(data));
   device.publish(topic, JSON.stringify(data));
   return callback();
 };

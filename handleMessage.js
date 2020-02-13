@@ -10,7 +10,7 @@ module.exports = function handleMessageFn(device, knownDevices, discoverBaseTopi
     const message = JSON.parse(payload.toString());
 
     switch (topicName) {
-      case 'pairSubdevice': {
+      case `${discoverBaseTopic}/device/post`: {
         pairSubdevice(device, message, knownDevices);
         break;
       }

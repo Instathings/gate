@@ -1,3 +1,4 @@
+const debug = require('debug')('gate');
 const initAddOn = require('./subdevice/initAddOn');
 const publishData = require('./subdevice/publishData');
 const onNewDeviceFn = require('./events/onNewDevice');
@@ -10,11 +11,11 @@ module.exports = function pairSubdevice(device, topicMess, knownDevices) {
   const onNewDevice = onNewDeviceFn(knownDevices, idIn, topic, addOn);
   return initAddOn(addOn, knownDevices, (err, addOnInstance) => {
     addOnInstance.init();
-    console.log('start discovering device...');
+    debug('start discovering device...');
     addOnInstance.on('data', (data) => {
       return publishData(device, data, topic, (error) => {
         if (error) {
-          console.log(error);
+          debug(error);
         }
       });
     });

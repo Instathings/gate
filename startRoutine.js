@@ -1,3 +1,4 @@
+const debug = require('debug')('gate');
 const async = require('async');
 const initAddOn = require('./subdevice/initAddOn');
 const publishData = require('./subdevice/publishData');
@@ -26,9 +27,9 @@ module.exports = function startRoutine(device, knownDevices) {
       });
     }, () => {
       protCall();
-      console.log('fine devices');
+      debug(`Processed all devices of ${protocol}`);
     });
   }, () => {
-    console.log('fine protocolli');
+    debug('Read all protocols from saved device file');
   });
 };

@@ -16,7 +16,10 @@ const caPath = path.join(__dirname, 'config', 'awsRootCA1.pem');
 const host = process.env.HOST;
 
 const clientId = `${process.env.NODE_ENV}-${process.env.PARENT_DEVICE_ID}`;
-const discoverBaseTopic = `${process.env.NODE_ENV}-discover/${process.env.PROJECT_ID}/${clientId}`;
+let discoverBaseTopic = `${process.env.NODE_ENV}-discover/${process.env.PROJECT_ID}/${clientId}`;
+if (process.env.NODE_ENV === 'production') {
+  discoverBaseTopic = `discover/${process.env.PROJECT_ID}/${clientId}`;
+}
 const options = {
   keyPath,
   certPath,

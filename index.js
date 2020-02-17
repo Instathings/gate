@@ -1,5 +1,4 @@
 const debug = require('debug')('gate');
-const _ = require('lodash');
 const awsIot = require('aws-iot-device-sdk');
 const path = require('path');
 const dotenv = require('dotenv');

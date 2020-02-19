@@ -3,7 +3,7 @@ const installAddOn = require('./installAddOn');
 
 module.exports = function initAddOn(topicMess, knownDevices, callback) {
   const { addOn, deviceType } = topicMess;
-  const { paringMethods } = deviceType;
+  const { pairingMethods } = deviceType;
   let GateAddOnClass;
   try {
     GateAddOnClass = require(addOn);
@@ -17,9 +17,9 @@ module.exports = function initAddOn(topicMess, knownDevices, callback) {
     });
   }
   let options = {};
-  if (paringMethods) {
+  if (pairingMethods) {
     options = {
-      touchlink: paringMethods.indexOf('touchlink') !== -1,
+      touchlink: pairingMethods.indexOf('touchlink') !== -1,
     };
   }
   const addOnInstance = new GateAddOnClass(knownDevices, options);

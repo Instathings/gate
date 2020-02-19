@@ -2,7 +2,8 @@ const debug = require('debug')('gate');
 const installAddOn = require('./installAddOn');
 
 module.exports = function initAddOn(topicMess, knownDevices, callback) {
-  const { addOn, paringMethods } = topicMess;
+  const { addOn, deviceType } = topicMess;
+  const { paringMethods } = deviceType;
   let GateAddOnClass;
   try {
     GateAddOnClass = require(addOn);

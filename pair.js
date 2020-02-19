@@ -11,7 +11,7 @@ module.exports = function pairSubdevice(topicNotify, device, topicMess, knownDev
   // const { deviceType } = topicMess;
   const { addOn } = topicMess;
   const onNewDevice = onNewDeviceFn(knownDevices, idIn, topic, addOn, responseTopic, device);
-  return initAddOn(addOn, knownDevices, (err, addOnInstance) => {
+  return initAddOn(topicMess, knownDevices, (err, addOnInstance) => {
     addOnInstance.init();
     debug('start discovering device...');
 

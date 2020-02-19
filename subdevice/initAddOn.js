@@ -1,23 +1,27 @@
-const debug = require('debug');
+const debug = require('debug')('gate');
 const installAddOn = require('./installAddOn');
 
-module.exports = function initAddOn(addOn, knownDevices, callback) {
+module.exports = function initAddOn(topicMess, knownDevices, callback) {
+  const { addOn, paringMethods } = topicMess;
   let GateAddOnClass;
   try {
     GateAddOnClass = require(addOn);
   } catch (error) {
-    console.log('ERRRR', error);
+    debug('installing addOn');
     return installAddOn(addOn, knownDevices, (err, addOnInstance) => {
       if (err) {
-        console.log(err);
+        debug(err);
       }
       return callback(null, addOnInstance);
     });
   }
-  console.log('known devi', knownDevices);
-  const addOnInstance = new GateAddOnClass(knownDevices);
-  console.log('created device instance');
+  let options = {};
+  if (paringMethods) {
+    options = {
+      touchlink: paringMethods.indexOf('touchlink') !== -1,
+    };
+  }
+  const addOnInstance = new GateAddOnClass(knownDevices, options);
+  debug('created device instance');
   return callback(null, addOnInstance);
-
 };
-

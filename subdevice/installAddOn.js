@@ -1,6 +1,8 @@
 const { spawn } = require('child_process');
 
-module.exports = function installAddOn(addOn, knownDevices, callback) {
+module.exports = function installAddOn(deviceId, deviceType, knownDevices, callback) {
+  const { addOn, pairingMethods } = deviceType;
+
   console.log('installing add-on...');
   const ls = spawn('npm', ['i', addOn]);
 
@@ -20,7 +22,13 @@ module.exports = function installAddOn(addOn, knownDevices, callback) {
   ls.on('close', (code) => {
     console.log(`child process exited with code ${code}`);
     const GateAddOnSensorTag = require(addOn);
-    const gAddSensorTag = new GateAddOnSensorTag(knownDevices);
+    let options = {};
+    if (pairingMethods) {
+      options = {
+        touchlink: pairingMethods.indexOf('touchlink') !== -1,
+      };
+    }
+    const gAddSensorTag = new GateAddOnSensorTag(deviceId, knownDevices, options);
     return callback(null, gAddSensorTag);
   });
 };

@@ -2,6 +2,7 @@ const debug = require('debug')('gate');
 const initAddOn = require('./subdevice/initAddOn');
 const publishData = require('./subdevice/publishData');
 const onNewDeviceFn = require('./events/onNewDevice');
+const onPairingTimeoutFn = require('./events/onPairingTimeout');
 
 module.exports = function pairSubdevice(topicNotify, device, topicMess, knownDevices) {
   const responseTopic = topicNotify.replace('/post', '');
@@ -10,6 +11,7 @@ module.exports = function pairSubdevice(topicNotify, device, topicMess, knownDev
   const { idIn } = topicMess;
   const { deviceType } = topicMess;
   const onNewDevice = onNewDeviceFn(knownDevices, idIn, topic, deviceType, responseTopic, device);
+  const onPairingTimeout = onPairingTimeoutFn(responseTopic, device);
   return initAddOn(idIn, deviceType, knownDevices, (err, addOnInstance) => {
     addOnInstance.init();
     debug('start discovering device...');
@@ -32,5 +34,6 @@ module.exports = function pairSubdevice(topicNotify, device, topicMess, knownDev
       });
     });
     addOnInstance.on('newDevice', onNewDevice);
+    addOnInstance.on('timeoutDiscovering', onPairingTimeout);
   });
 };

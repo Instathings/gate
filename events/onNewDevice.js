@@ -48,6 +48,5 @@ module.exports = function onNewDeviceFn(knownDevices, id, topic, deviceType, top
       }
       debug('File written successfully');
     });
-    return;
   };
 };

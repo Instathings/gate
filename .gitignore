@@ -88,10 +88,13 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
+# certificates
+config/
+
+# known devices file
+knownDevices.config
+
 # End of https://www.gitignore.io/api/node
 
 sslCert/
 .DS_Store
-
-# config
-config/

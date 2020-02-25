@@ -1,4 +1,5 @@
 const fs = require('fs');
+
 const configPath = `${__dirname}/knownDevices.config`;
 
 module.exports = function listDevices() {
@@ -8,4 +9,4 @@ module.exports = function listDevices() {
     deviceKeys = JSON.parse(stringKeys);
   }
   return deviceKeys;
-}
+};

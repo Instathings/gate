@@ -9,13 +9,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@instathings/gate-addon-zigbee": "^1.0.0",
     "async": "^3.1.0",
     "aws-iot-device-sdk": "^2.2.1",
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
     "lodash": "^4.17.15",
     "request": "^2.88.0",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.3",
+    "undefined": "^0.1.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

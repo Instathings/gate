@@ -3,7 +3,9 @@ const _ = require('lodash');
 const fs = require('fs');
 const path = require('path');
 
-module.exports = function onNewDeviceFn(knownDevices, id, topic, addOn, topicNotify, deviceAWS) {
+const AddOnHandler = require('../AddOnHandler');
+
+module.exports = function onNewDeviceFn(knownDevices, id, topic, deviceType, topicNotify, deviceAWS) {
   return function onNewDevice(newDevice) {
     const payload = {
       status: {
@@ -21,14 +23,24 @@ module.exports = function onNewDeviceFn(knownDevices, id, topic, addOn, topicNot
     const device = {
       id,
       topic,
-      addOn,
+      deviceType,
       ...newDevice,
     };
     if (!devices) {
       _.set(knownDevices, protocol, [device]);
+      const addOnHandler = AddOnHandler.getInstance();
+      const instance = addOnHandler.get(device.id);
+      instance.setKnownDevices(knownDevices[protocol]);
     } else {
       devices.push(device);
+      devices.forEach((deviceLoop) => {
+        const deviceId = deviceLoop.id;
+        const addOnHandler = AddOnHandler.getInstance();
+        const instance = addOnHandler.get(deviceId);
+        instance.setKnownDevices(knownDevices[protocol]);
+      });
     }
+
     const configPath = path.resolve(__dirname, '..', 'knownDevices.config');
     return fs.writeFile(configPath, JSON.stringify(knownDevices), (err) => {
       if (err) {

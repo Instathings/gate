@@ -1,18 +1,20 @@
 const debug = require('debug')('gate');
 const installAddOn = require('./installAddOn');
+const AddOnHandler = require('../AddOnHandler');
 
-module.exports = function initAddOn(topicMess, knownDevices, callback) {
-  const { addOn, deviceType } = topicMess;
-  const { pairingMethods } = deviceType;
+module.exports = function initAddOn(deviceId, deviceType, knownDevices, callback) {
+  const addOnHandler = AddOnHandler.getInstance();
+  const { addOn, pairingMethods } = deviceType;
   let GateAddOnClass;
   try {
     GateAddOnClass = require(addOn);
   } catch (error) {
     debug('installing addOn');
-    return installAddOn(addOn, knownDevices, (err, addOnInstance) => {
+    return installAddOn(deviceId, deviceType, knownDevices, (err, addOnInstance) => {
       if (err) {
         debug(err);
       }
+      addOnHandler.add(addOnInstance);
       return callback(null, addOnInstance);
     });
   }
@@ -22,7 +24,9 @@ module.exports = function initAddOn(topicMess, knownDevices, callback) {
       touchlink: pairingMethods.indexOf('touchlink') !== -1,
     };
   }
-  const addOnInstance = new GateAddOnClass(knownDevices, options);
+  const addOnInstance = new GateAddOnClass(deviceId, knownDevices, options);
   debug('created device instance');
+
+  addOnHandler.add(addOnInstance);
   return callback(null, addOnInstance);
 };

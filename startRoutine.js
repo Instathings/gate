@@ -12,8 +12,8 @@ module.exports = function startRoutine(device, knownDevices) {
   async.eachSeries(protocols, (protocol, protCall) => {
     const devices = knownDevices[protocol];
     async.eachSeries(devices, (knownDevice, deviceCall) => {
-      const { addOn } = knownDevice;
-      initAddOn(addOn, knownDevices, (err, addOnInstance) => {
+      const { deviceType, id } = knownDevice;
+      initAddOn(id, deviceType, knownDevices, (err, addOnInstance) => {
         addOnInstance.start(knownDevice);
         addOnInstance.on('data', (data) => {
           const { topic } = knownDevice;

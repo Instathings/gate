@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2020-02-25
+### Added
+- add feature to control devices
+
 ## [1.0.1] - 2020-02-17
 ### Added
 - fix subscription to discover topic

@@ -2,7 +2,9 @@ name: buildx
 
 on:
   push:
-    branches: development
+    branches: 
+      - development
+      - master
     tags:
 
 jobs:

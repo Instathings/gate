@@ -6,5 +6,7 @@ module.exports = function publishControlMessage(topicName, device, message, know
   const deviceId = _.get(splitted, '[3]');
   const addOnHandler = AddOnHandler.getInstance();
   const addOnInstance = addOnHandler.get(deviceId);
-  addOnInstance.control(message);
+
+  const action = splitted[splitted.length - 1];
+  addOnInstance.control(message, action);
 };

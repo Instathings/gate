@@ -2,8 +2,10 @@ const debug = require('debug')('gate');
 const async = require('async');
 const initAddOn = require('./subdevice/initAddOn');
 const publishData = require('./subdevice/publishData');
+const onStatusFn = require('./events/onStatus');
 
 module.exports = function startRoutine(device, knownDevices) {
+  const onStatus = onStatusFn(device);
   if (knownDevices === {}) {
     return;
   }
@@ -23,6 +25,7 @@ module.exports = function startRoutine(device, knownDevices) {
             }
           });
         });
+        addOnInstance.on('status', onStatus);
         deviceCall();
       });
     }, () => {

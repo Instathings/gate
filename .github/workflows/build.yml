@@ -25,7 +25,7 @@ jobs:
         run: npm i
       -
         name: run
-        run: mocha
+        run: npm test
       -
         name: run
         run: ls -la 

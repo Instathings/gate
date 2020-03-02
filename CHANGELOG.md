@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2020-03-02
+### Added
+- first test for `AddOnHandler`
+- support for `control/get` mqtt messages
+
 ## [1.1.2] - 2020-02-26
 ### Added
 - `master` branch added to build.yml 

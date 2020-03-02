@@ -22,6 +22,9 @@ jobs:
         run: pwd 
       -
         name: run
+        run: mocha
+      -
+        name: run
         run: ls -la 
       -
         name: Set up Docker Buildx

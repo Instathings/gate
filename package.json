@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "DEBUG=gate ./node_modules/nodemon/bin/nodemon.js index.js",
-    "test": "mocha"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "author": "",
   "license": "ISC",
@@ -16,13 +16,13 @@
     "dotenv": "^8.2.0",
     "lodash": "^4.17.15",
     "request": "^2.88.0",
-    "shelljs": "^0.8.3",
-    "undefined": "^0.1.0"
+    "shelljs": "^0.8.3"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.1",
+    "mocha": "^7.1.0",
     "nodemon": "^2.0.2"
   }
 }

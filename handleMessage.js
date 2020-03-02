@@ -24,10 +24,9 @@ module.exports = function handleMessageFn(device, knownDevices, discoverBaseTopi
         // controlB   development-control/ZLS75DhL/development-oMqnhCUd
         // topicName  development-control/ZLS75DhL/development-oMqnhCUd/subdeviceid/set
         debug('Default case');
-        const isControl = new RegExp('.*control\/.*\/set$').test(topicName);
-        console.log('IS CONTROL', isControl);
+        const isControl = new RegExp('.*control\/.*\/').test(topicName);
+
         if (isControl) {
-          console.log('PUBLISH');
           publishControlMessage(topicName, device, message, knownDevices);
         }
         break;

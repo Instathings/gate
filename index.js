@@ -54,7 +54,7 @@ device.on('connect', () => {
     debug(`Subscribed to topic ${controlBaseTopic}/#`);
   });
   debug(`Subscribing to ${controlBaseTopic}/#`);
-  startRoutine(device, knownDevices);
+  startRoutine(device, knownDevices, discoverBaseTopic);
 });
 
 device.on('disconnect', () => {

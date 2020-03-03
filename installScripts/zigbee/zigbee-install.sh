@@ -31,7 +31,7 @@ cp /home/node/gate/installScripts/zigbee/zigbee2mqtt/configuration.yaml /home/no
 
 docker run \
    -dt \
-   -v /home/$HOST_USERNAME/service/zigbee2mqtt/data:/app/data \
+   -v /home/pi/service/zigbee2mqtt/data:/app/data \
    --device=/dev/ttyACM0 \
    -e TZ=GMT \
    -v /run/udev:/run/udev:ro \

@@ -16,6 +16,7 @@ module.exports = function onStatusFn(deviceAWS) {
       topic = `${process.env.NODE_ENV}-${topic}`;
     }
     debug(JSON.stringify(message));
+    debug('PUBLISH TOPIC', topic);
     deviceAWS.publish(topic, JSON.stringify(message));
   };
 };

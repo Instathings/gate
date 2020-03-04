@@ -17,7 +17,8 @@ module.exports = function onNewDeviceFn(knownDevices, id, topic, deviceType, top
     debug(JSON.stringify(payload));
     deviceAWS.publish(topicNotify, JSON.stringify(payload));
 
-    const { protocol } = newDevice;
+    const protocol = deviceType.protocols[0];
+
     const devices = knownDevices[protocol];
     _.unset(newDevice, 'protocol');
     const device = {

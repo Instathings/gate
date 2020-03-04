@@ -4,6 +4,7 @@ const publishData = require('./subdevice/publishData');
 const onNewDeviceFn = require('./events/onNewDevice');
 const onStatusFn = require('./events/onStatus');
 const onPairingTimeoutFn = require('./events/onPairingTimeout');
+const onRemovedDeviceFn = require('./events/onRemovedDevice');
 
 module.exports = function pairSubdevice(topicNotify, device, topicMess, knownDevices) {
   const responseTopic = topicNotify.replace('/post', '');
@@ -12,6 +13,7 @@ module.exports = function pairSubdevice(topicNotify, device, topicMess, knownDev
   const { idIn } = topicMess;
   const { deviceType } = topicMess;
   const onNewDevice = onNewDeviceFn(knownDevices, idIn, topic, deviceType, responseTopic, device);
+  const onRemovedDevice = onRemovedDeviceFn(knownDevices, deviceType, responseTopic, device);
   const onPairingTimeout = onPairingTimeoutFn(responseTopic, device);
   const onStatus = onStatusFn(device);
 
@@ -37,7 +39,9 @@ module.exports = function pairSubdevice(topicNotify, device, topicMess, knownDev
       });
     });
     addOnInstance.on('newDevice', onNewDevice);
+    addOnInstance.on('deviceRemoved', onRemovedDevice);
     addOnInstance.on('status', onStatus);
     addOnInstance.on('timeoutDiscovering', onPairingTimeout);
+
   });
 };

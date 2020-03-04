@@ -1,3 +1,4 @@
+const _ = require('lodash');
 class AddOnHandler {
   constructor() {
     this.instances = [];
@@ -22,6 +23,12 @@ class AddOnHandler {
       }
     });
     return result;
+  }
+
+  remove(id) {
+    _.remove(this.instances, (element) => {
+      return element.id === id;
+    })
   }
 }
 

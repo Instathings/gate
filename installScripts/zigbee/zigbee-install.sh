@@ -17,7 +17,8 @@ docker run -dt \
 -v /home/$HOST_USERNAME/service/mosquitto/log:/mosquitto/log \
 --name mosquitto \
 --network gate-net \
- eclipse-mosquitto
+--restart=always \
+ eclipse-mosquitto:1.6.8
 
 # zigbee2mqtt
 cd /home/node/gate/service
@@ -30,11 +31,12 @@ cp /home/node/gate/installScripts/zigbee/zigbee2mqtt/configuration.yaml /home/no
 
 docker run \
    -dt \
-   -v /home/$HOST_USERNAME/service/zigbee2mqtt/data:/app/data \
+   -v /home/pi/service/zigbee2mqtt/data:/app/data \
    --device=/dev/ttyACM0 \
    -e TZ=GMT \
    -v /run/udev:/run/udev:ro \
    --privileged=true \
    --name zigbee2mqtt \
    --network gate-net \
-   koenkk/zigbee2mqtt
+   --restart=always \
+   koenkk/zigbee2mqtt:1.11.0

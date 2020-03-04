@@ -9,4 +9,7 @@ module.exports = function publishControlMessage(topicName, device, message, know
 
   const action = splitted[splitted.length - 1];
   addOnInstance.control(message, action);
+  if (action === 'remove') {
+    addOnInstance.remove(message);
+  }
 };

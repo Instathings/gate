@@ -37,4 +37,4 @@ docker run \
    --privileged=true \
    --name zigbee2mqtt \
    --network gate-net \
-   koenkk/zigbee2mqtt
+   koenkk/zigbee2mqtt:1.11.0

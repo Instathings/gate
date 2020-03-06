@@ -11,3 +11,8 @@ docker run \
    --network gate-net \
    --restart=always \
    nodered/node-red:1.0.4
+
+   npm i @instathings/device-in
+   npm i @instathings/device-out
+
+   docker restart node-red

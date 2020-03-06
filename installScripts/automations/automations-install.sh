@@ -1,7 +1,6 @@
 
 cd /home/node/gate/service
 mkdir node-red
-sudo chown -R 1000:1000 node-red
 
 docker run \
    -dt \

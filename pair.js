@@ -8,11 +8,8 @@ const onRemovedDeviceFn = require('./events/onRemovedDevice');
 
 module.exports = function pairSubdevice(topicNotify, device, topicMess, knownDevices) {
   const responseTopic = topicNotify.replace('/post', '');
-
-  const { topic } = topicMess;
-  const { idIn } = topicMess;
-  const { deviceType } = topicMess;
-  const onNewDevice = onNewDeviceFn(knownDevices, idIn, topic, deviceType, responseTopic, device);
+  const { topic, deviceType, idIn } = topicMess;
+  const onNewDevice = onNewDeviceFn(knownDevices, topicMess, responseTopic, device);
   const onRemovedDevice = onRemovedDeviceFn(knownDevices, deviceType, responseTopic, device);
   const onPairingTimeout = onPairingTimeoutFn(responseTopic, device);
   const onStatus = onStatusFn(device);

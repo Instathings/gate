@@ -26,7 +26,8 @@ module.exports = function onRemovedDeviceFn(knownDevices, deviceType, topicNotif
       return device.id === deviceId;
     })
 
-    const configPath = path.resolve(__dirname, '..', 'knownDevices.config');
+
+    const configPath = process.env.IS_HOST ? '/home/pi/service/knownDevices.config' : '/home/node/gate/service/knownDevices.config';
     return fs.writeFile(configPath, JSON.stringify(knownDevices), (err) => {
       if (err) {
         debug(err);

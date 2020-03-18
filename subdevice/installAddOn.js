@@ -21,14 +21,14 @@ module.exports = function installAddOn(deviceId, deviceType, knownDevices, callb
 
   ls.on('close', (code) => {
     console.log(`child process exited with code ${code}`);
-    const GateAddOnSensorTag = require(addOn);
+    const GateAddOn = require(addOn);
     let options = {};
     if (pairingMethods) {
       options = {
         touchlink: pairingMethods.indexOf('touchlink') !== -1,
       };
     }
-    const gAddSensorTag = new GateAddOnSensorTag(deviceId, knownDevices, options);
+    const gAddSensorTag = new GateAddOn(deviceId, deviceType, knownDevices, options);
     return callback(null, gAddSensorTag);
   });
 };

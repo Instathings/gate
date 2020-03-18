@@ -1,4 +1,4 @@
-FROM node:12.14.1
+FROM node:12.16.1
 RUN apt-get update
 RUN apt-get install -y git 
 USER node

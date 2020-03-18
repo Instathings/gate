@@ -24,7 +24,6 @@ module.exports = function initAddOn(deviceId, deviceType, knownDevices, callback
       touchlink: pairingMethods.indexOf('touchlink') !== -1,
     };
   }
-  console.log('NEW INSTANCE', deviceId, deviceType);
   const addOnInstance = new GateAddOnClass(deviceId, deviceType, knownDevices, options);
   debug('created device instance');
 

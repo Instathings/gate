@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.3] - 2020-03-18
+### Changed
+- Bumped Node.js version 12.16.1
+- Fixed Zigbee protocol script
+
 ## [1.2.2] - 2020-03-17
 ### Changed
 - Bumped dependencies

@@ -29,9 +29,10 @@ mkdir data
 chmod -R 777 data
 cp /home/node/gate/installScripts/zigbee/zigbee2mqtt/configuration.yaml /home/node/gate/service/zigbee2mqtt/data/configuration.yaml
 
+
 docker run \
    -dt \
-   -v /home/pi/service/zigbee2mqtt/data:/app/data \
+   -v /home/$HOST_USERNAME/service/zigbee2mqtt/data:/app/data \
    --device=/dev/ttyACM0 \
    -e TZ=GMT \
    -v /run/udev:/run/udev:ro \

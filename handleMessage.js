@@ -1,8 +1,9 @@
 const debug = require('debug')('gate');
 const pairSubdevice = require('./pair');
 const installProtocol = require('./installProtocol');
+const publishControlMessage = require('./publishControlMessage');
 
-module.exports = function handleMessageFn(device, knownDevices, discoverBaseTopic) {
+module.exports = function handleMessageFn(device, knownDevices, discoverBaseTopic, controlBaseTopic) {
   return function handleMessage(topicName, payload) {
     debug(new Date().toISOString());
     debug('Received message on topic', topicName);
@@ -20,7 +21,14 @@ module.exports = function handleMessageFn(device, knownDevices, discoverBaseTopi
         break;
       }
       default: {
+        // controlB   development-control/ZLS75DhL/development-oMqnhCUd
+        // topicName  development-control/ZLS75DhL/development-oMqnhCUd/subdeviceid/set
         debug('Default case');
+        const isControl = new RegExp('.*control\/.*\/').test(topicName);
+
+        if (isControl) {
+          publishControlMessage(topicName, device, message, knownDevices);
+        }
         break;
       }
     }

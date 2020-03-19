@@ -1,5 +1,6 @@
 const fs = require('fs');
-const configPath = `${__dirname}/knownDevices.config`;
+
+const configPath = process.env.IS_HOST ? '/home/pi/service/knownDevices.config' : '/home/node/gate/service/knownDevices.config';
 
 module.exports = function listDevices() {
   let deviceKeys = {};
@@ -8,4 +9,4 @@ module.exports = function listDevices() {
     deviceKeys = JSON.parse(stringKeys);
   }
   return deviceKeys;
-}
+};

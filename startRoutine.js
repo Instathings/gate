@@ -2,8 +2,12 @@ const debug = require('debug')('gate');
 const async = require('async');
 const initAddOn = require('./subdevice/initAddOn');
 const publishData = require('./subdevice/publishData');
+const onStatusFn = require('./events/onStatus');
+const onRemovedDeviceFn = require('./events/onRemovedDevice');
 
-module.exports = function startRoutine(device, knownDevices) {
+module.exports = function startRoutine(device, knownDevices, discoverBaseTopic) {
+  const responseTopic = `${discoverBaseTopic}/device`;
+  const onStatus = onStatusFn(device);
   if (knownDevices === {}) {
     return;
   }
@@ -12,8 +16,9 @@ module.exports = function startRoutine(device, knownDevices) {
   async.eachSeries(protocols, (protocol, protCall) => {
     const devices = knownDevices[protocol];
     async.eachSeries(devices, (knownDevice, deviceCall) => {
-      const { addOn } = knownDevice;
-      initAddOn(addOn, knownDevices, (err, addOnInstance) => {
+      const { deviceType, id } = knownDevice;
+      const onRemovedDevice = onRemovedDeviceFn(knownDevices, deviceType, responseTopic, device);
+      initAddOn(id, deviceType, knownDevices, (err, addOnInstance) => {
         addOnInstance.start(knownDevice);
         addOnInstance.on('data', (data) => {
           const { topic } = knownDevice;
@@ -23,6 +28,8 @@ module.exports = function startRoutine(device, knownDevices) {
             }
           });
         });
+        addOnInstance.on('status', onStatus);
+        addOnInstance.on('deviceRemoved', onRemovedDevice)
         deviceCall();
       });
     }, () => {

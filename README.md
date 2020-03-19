@@ -1,7 +1,7 @@
 # Gate - Instathings open source edge software
 
 <a href="https://www.instathings.io/" target="_blank">
-    <img src="/images/new-logo-transparent.png" width="1000"/>
+    <img src="/images/instathings-logo-red.png" width="500"/>
 </a>
 
 Gate is a free and open fair-code licensed edge computing gateway. 

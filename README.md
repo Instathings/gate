@@ -1,5 +1,14 @@
 # Gate - Instathings open source edge software
 
-Gate is a free and open [http://faircode.io/](fair-code) licensed edge computing gateway.
+Gate is a free and open [fair-code](http://faircode.io/) licensed edge computing gateway. 
 
-n8n is a free and open fair-code licensed node based Workflow Automation Tool. It can be self-hosted, easily extended, and so also used with internal tools.
+Gate can run on any device able to execute Docker (e.g Raspberry Pi) and can it connects your end-devices ([here](https://docs.instathings.io/docs/all-devices.html) is the list of the supported devices) to the Instathings Cloud.
+Gate is able to: 
+* collect data coming from your sensors, 
+* detect new devices, 
+* get the status of device 
+and send all these informations to the Cloud.
+
+For more information about setting up your gateway refer to our [docs section](https://docs.instathings.io/docs/guides/gateway-setup.html).
+
+

@@ -8,7 +8,7 @@ const gateVersion = pjson.version;
 
 
 module.exports = function installProtocol(topic, protocol, protocolId, device) {
-  const gwSoftwaresVersions = {};
+  const versions = {};
   const filename = `${__dirname}/installScripts/${protocol}/${protocol}-install.sh`;
   const script = `bash ${filename}`;
   shell.exec(script, (code, stdout, stderr) => {
@@ -19,11 +19,12 @@ module.exports = function installProtocol(topic, protocol, protocolId, device) {
       containers.forEach((container) => {
         let containerName = container.Names;
         containerName = containerName[0].replace('/', '');
-        _.set(gwSoftwaresVersions, containerName, container.Image);
+        _.set(versions, containerName, container.Image);
         if (containerName === 'gate') {
           let gateImage = container.Image;
-          gateImage = gateImage.replace('latest', gateVersion);
-          _.set(gwSoftwaresVersions, 'gate', gateImage);
+          const tag = (process.env.NODE_ENV !== 'production') ? 'staging' : 'latest';
+          gateImage = gateImage.replace(tag, gateVersion);
+          _.set(versions, 'gate', gateImage);
         }
       });
       const installResponse = {
@@ -34,7 +35,7 @@ module.exports = function installProtocol(topic, protocol, protocolId, device) {
         installationSuccess: code === 0,
         stdout,
         stderr,
-        gwSoftwaresVersions,
+        versions,
       };
       const responseTopic = topic.replace('/post', '');
       device.publish(responseTopic, JSON.stringify(installResponse));

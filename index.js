@@ -2,6 +2,15 @@ const debug = require('debug')('gate');
 const awsIot = require('aws-iot-device-sdk');
 const path = require('path');
 const dotenv = require('dotenv');
+const _ = require('lodash');
+
+const pjson = require('./package.json');
+
+const gateVersion = pjson.version;
+const versions = {};
+_.set(versions, 'gate', gateVersion);
+
+
 const handleMessageFn = require('./handleMessage');
 
 const configFile = `${__dirname}/config/.env`;
@@ -54,6 +63,7 @@ device.on('connect', () => {
     debug(`Subscribed to topic ${controlBaseTopic}/#`);
   });
   debug(`Subscribing to ${controlBaseTopic}/#`);
+  device.publish(discoverBaseTopic, JSON.stringify(versions));
   startRoutine(device, knownDevices, discoverBaseTopic);
 });
 

@@ -26,18 +26,18 @@ module.exports = function installProtocol(topic, protocol, protocolId, device) {
           _.set(gwSoftwaresVersions, 'gate', gateImage);
         }
       });
+      const installResponse = {
+        dt_install: new Date().getTime(),
+        protocol,
+        protocolId,
+        exitStatus: code,
+        installationSuccess: code === 0,
+        stdout,
+        stderr,
+        gwSoftwaresVersions,
+      };
+      const responseTopic = topic.replace('/post', '');
+      device.publish(responseTopic, JSON.stringify(installResponse));
     });
-    const installResponse = {
-      dt_install: new Date().getTime(),
-      protocol,
-      protocolId,
-      exitStatus: code,
-      installationSuccess: code === 0,
-      stdout,
-      stderr,
-      gwSoftwaresVersions,
-    };
-    const responseTopic = topic.replace('/post', '');
-    device.publish(responseTopic, JSON.stringify(installResponse));
   });
 };

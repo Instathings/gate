@@ -2,14 +2,6 @@ const debug = require('debug')('gate');
 const awsIot = require('aws-iot-device-sdk');
 const path = require('path');
 const dotenv = require('dotenv');
-const _ = require('lodash');
-
-const pjson = require('./package.json');
-
-const gateVersion = pjson.version;
-const versions = {};
-_.set(versions, 'gate', gateVersion);
-
 
 const handleMessageFn = require('./handleMessage');
 
@@ -18,6 +10,7 @@ dotenv.config({ path: configFile });
 
 const listDevices = require('./listDevices');
 const startRoutine = require('./startRoutine');
+const notifyVersion = require('./notifyVersion');
 
 const keyPath = path.join(__dirname, 'config', 'private.key');
 const certPath = path.join(__dirname, 'config', 'certificate.pem');
@@ -63,8 +56,8 @@ device.on('connect', () => {
     debug(`Subscribed to topic ${controlBaseTopic}/#`);
   });
   debug(`Subscribing to ${controlBaseTopic}/#`);
-  device.publish(discoverBaseTopic, JSON.stringify(versions));
-  startRoutine(device, knownDevices, discoverBaseTopic);
+  notifyVersion(device, discoverBaseTopic);
+  startRoutine(device, knownDevices);
 });
 
 device.on('disconnect', () => {

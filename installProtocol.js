@@ -4,11 +4,11 @@ const _ = require('lodash');
 const pjson = require('./package.json');
 
 const docker = new Docker();
-const gwSoftwaresVersions = {};
 const gateVersion = pjson.version;
 
 
 module.exports = function installProtocol(topic, protocol, protocolId, device) {
+  const gwSoftwaresVersions = {};
   const filename = `${__dirname}/installScripts/${protocol}/${protocol}-install.sh`;
   const script = `bash ${filename}`;
   shell.exec(script, (code, stdout, stderr) => {
@@ -19,7 +19,7 @@ module.exports = function installProtocol(topic, protocol, protocolId, device) {
       containers.forEach((container) => {
         let containerName = container.Names;
         containerName = containerName[0].replace('/', '');
-        _.set(gwSoftwaresVersions, `${containerName}`, container.Image);
+        _.set(gwSoftwaresVersions, containerName, container.Image);
         if (containerName === 'gate') {
           let gateImage = container.Image;
           gateImage = gateImage.replace('latest', gateVersion);

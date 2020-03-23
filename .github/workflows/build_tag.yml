@@ -2,9 +2,8 @@ name: buildx
 
 on:
   push:
-    branches: 
-      - development
-    tags:
+    tags: 
+      - '*'
 
 jobs:
   buildx:
@@ -39,9 +38,15 @@ jobs:
         run: echo ${{ steps.buildx.outputs.platforms }}
       -
         name: set up image tag
-        run: echo ::set-env name=TAG::staging
+        run: echo ::set-env name=TAG::${GITHUB_REF/refs\/tags\//}
       -
-        name: echo branch
+        name: set up image tag
+        run: sed -i "s/RUN git checkout development/#/g" Dockerfile
+      -
+        name: cat
+        run: cat Dockerfile
+      -
+        name: echo tag
         run: echo ${{env.TAG}}
       -
         name: Run Buildx

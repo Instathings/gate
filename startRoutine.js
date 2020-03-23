@@ -29,7 +29,7 @@ module.exports = function startRoutine(device, knownDevices, discoverBaseTopic) 
           });
         });
         addOnInstance.on('status', onStatus);
-        addOnInstance.on('deviceRemoved', onRemovedDevice)
+        addOnInstance.on('deviceRemoved', onRemovedDevice);
         deviceCall();
       });
     }, () => {

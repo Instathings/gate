@@ -38,7 +38,7 @@ jobs:
         run: echo ${{ steps.buildx.outputs.platforms }}
       -
         name: set up image tag
-        run: echo ::set-env name=TAG::${GITHUB_REF/refs\/tags\//}
+        run: echo ::set-env name=TAG::${GITHUB_REF/refs\/tags\/v/}
       -
         name: set up image tag
         run: sed -i "s/RUN git checkout development/#/g" Dockerfile

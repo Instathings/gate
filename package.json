@@ -1,11 +1,11 @@
 {
   "name": "gate",
-  "version": "1.2.7",
+  "version": "1.3.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "DEBUG=gate ./node_modules/nodemon/bin/nodemon.js index.js",
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "make test-all"
   },
   "author": "",
   "license": "ISC",

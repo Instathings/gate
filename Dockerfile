@@ -1,6 +1,6 @@
 FROM node:12.16.1
 RUN apt-get update
-RUN apt-get install -y git 
+RUN apt-get install -y git nano
 USER node
 WORKDIR /home/node
 RUN pwd

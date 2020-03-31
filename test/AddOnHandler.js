@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-const AddOnHandler = require('../AddOnHandler');
+const AddOnHandler = require('../lib/AddOnHandler');
 
 describe('AddOnHandler', () => {
   it('should have the getInstance static method', () => {

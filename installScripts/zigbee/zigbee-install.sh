@@ -18,7 +18,7 @@ docker run -dt \
 --name mosquitto \
 --network gate-net \
 --restart=always \
- eclipse-mosquitto:1.6.8
+ eclipse-mosquitto:1.6.9
 
 # zigbee2mqtt
 cd /home/node/gate/service
@@ -40,4 +40,4 @@ docker run \
    --name zigbee2mqtt \
    --network gate-net \
    --restart=always \
-   koenkk/zigbee2mqtt:1.11.0
+   koenkk/zigbee2mqtt:1.12.0

@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2020-03-30
+### Changed
+- Code refactor 
+### Added
+- Reading `REGION` from env variable if available, compatibility kept with `eu-west-1` default region
+- Some tests
+
 ## [1.2.7] - 2020-03-23
 ### Changed
 - Fix build process

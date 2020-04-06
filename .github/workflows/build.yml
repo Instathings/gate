@@ -44,9 +44,6 @@ jobs:
         name: echo branch
         run: echo ${{env.TAG}}
       -
-        name: set up image tag
-        run: sed -i "s/RUN git checkout development/RUN git checkout ${{env.TAG}}/g" Dockerfile
-      -
         name: Run Buildx
         run: |
           docker buildx build --platform linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm64 -t instathings/gate:${{env.TAG}} --file ./Dockerfile --no-cache --push ./

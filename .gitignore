@@ -90,6 +90,9 @@ typings/
 
 # certificates
 config/
+config_dev/
+config_staging/
+config_prod/
 
 # known devices file
 knownDevices.config

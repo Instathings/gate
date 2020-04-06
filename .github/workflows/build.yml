@@ -3,7 +3,7 @@ name: buildx
 on:
   push:
     branches: 
-      - upgrade
+      - development
     tags:
 
 jobs:
@@ -39,7 +39,7 @@ jobs:
         run: echo ${{ steps.buildx.outputs.platforms }}
       -
         name: set up image tag
-        run: echo ::set-env name=TAG::upgrade
+        run: echo ::set-env name=TAG::staging
       -
         name: echo branch
         run: echo ${{env.TAG}}

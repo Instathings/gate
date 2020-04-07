@@ -91,6 +91,7 @@ typings/
 # certificates
 config/
 config_dev/
+config_tdemo2/
 config_staging/
 config_prod/
 

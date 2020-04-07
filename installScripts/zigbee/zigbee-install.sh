@@ -15,7 +15,7 @@ docker run -dt \
 -v /home/$HOST_USERNAME/service/mosquitto/config:/mosquitto/config \
 -v /home/$HOST_USERNAME/service/mosquitto/data:/mosquitto/data \
 -v /home/$HOST_USERNAME/service/mosquitto/log:/mosquitto/log \
---name mosquitto \
+--name eclipse-mosquitto \
 --network gate-net \
 --restart=always \
  eclipse-mosquitto:1.6.9
@@ -37,7 +37,7 @@ docker run \
    -e TZ=GMT \
    -v /run/udev:/run/udev:ro \
    --privileged=true \
-   --name zigbee2mqtt \
+   --name koenkk/zigbee2mqtt \
    --network gate-net \
    --restart=always \
    koenkk/zigbee2mqtt:1.12.0

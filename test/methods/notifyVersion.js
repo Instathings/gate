@@ -29,7 +29,7 @@ describe('Notify version', () => {
       listContainers: (callback) => {
         const result = [
           {
-            Names: 'gate',
+            Names: ['/gate'],
             Image: id,
           },
         ];
@@ -64,15 +64,15 @@ describe('Notify version', () => {
       listContainers: (callback) => {
         const result = [
           {
-            Names: 'gate',
+            Names: ['/gate'],
             Image: id,
           },
           {
-            Names: 'koenkk-zigbee2mqtt',
+            Names: ['/koenkk-zigbee2mqtt'],
             Image: 'koenkk/zigbee2mqtt:1.11.0',
           },
           {
-            Names: 'eclipse-mosquitto',
+            Names: ['/eclipse-mosquitto'],
             Image: 'eclipse-mosquitto:1.6.8',
           },
         ];

@@ -7,12 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.3.2] - 2020-04-07
+## [1.3.2] - 2020-04-08
 ### Added
 - Handling protocol update message 
 ### Changed
 - `mosquitto` container name in `eclipse-mosquitto`
 - `zigbee2mqtt` container name in `koenkk-zigbee2mqtt`
+- fixed `automations` install script
 
 ## [1.3.1] - 2020-04-06
 ### Added

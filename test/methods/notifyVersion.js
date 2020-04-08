@@ -15,7 +15,7 @@ describe('Notify version', () => {
           assert.strictEqual(topic, `${discoverBaseTopic}/version`);
           const expected = {
             versions: {
-              'instathings/gate': id,
+              gate: id,
             },
           };
           const expectedStringified = JSON.stringify(expected);
@@ -48,8 +48,8 @@ describe('Notify version', () => {
           assert.strictEqual(topic, `${discoverBaseTopic}/version`);
           const expected = {
             versions: {
-              'instathings/gate': id,
-              'koenkk/zigbee2mqtt': 'koenkk/zigbee2mqtt:1.11.0',
+              gate: id,
+              'koenkk-zigbee2mqtt': 'koenkk/zigbee2mqtt:1.11.0',
               'eclipse-mosquitto': 'eclipse-mosquitto:1.6.8',
             },
           };
@@ -68,7 +68,7 @@ describe('Notify version', () => {
             Image: id,
           },
           {
-            Names: 'koenkk/zigbee2mqtt',
+            Names: 'koenkk-zigbee2mqtt',
             Image: 'koenkk/zigbee2mqtt:1.11.0',
           },
           {

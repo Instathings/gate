@@ -37,7 +37,7 @@ docker run \
    -e TZ=GMT \
    -v /run/udev:/run/udev:ro \
    --privileged=true \
-   --name koenkk/zigbee2mqtt \
+   --name koenkk-zigbee2mqtt \
    --network gate-net \
    --restart=always \
    koenkk/zigbee2mqtt:1.12.0

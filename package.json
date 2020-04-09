@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@instathings/device-in": "^1.0.1",
     "async": "^3.2.0",
     "aws-iot-device-sdk": "^2.2.3",
     "debug": "^4.1.1",

@@ -1,0 +1,14 @@
+# MQTT settings
+mqtt:
+  # MQTT base topic for zigbee2mqtt MQTT messages
+  base_topic: modbus2mqtt
+  # MQTT server URL
+  server: 'mqtt://eclipse-mosquitto'
+  # MQTT server authentication, uncomment if required:
+  # user: my_user
+  # password: my_password
+
+# Serial settings
+modbus:
+  port: /dev/ttyUSB0
+  baud_rate: 9600

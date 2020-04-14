@@ -1,4 +1,4 @@
-FROM node:12.16.1
+FROM node:12.16.2
 RUN apt-get update
 RUN apt-get install -y git nano
 USER node
@@ -11,4 +11,4 @@ RUN npm install
 VOLUME /home/gate/config
 VOLUME [ "/home/node/gate/service" ]
 ENV DEBUG gate
-CMD node index.js
+ENTRYPOINT [ "node", "index.js" ]

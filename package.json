@@ -10,9 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@instathings/device-in": "^1.0.1",
     "async": "^3.2.0",
-    "aws-iot-device-sdk": "^2.2.3",
+    "aws-iot-device-sdk": "^2.2.4",
     "debug": "^4.1.1",
     "dockerode": "^3.2.0",
     "dotenv": "^8.2.0",
@@ -25,6 +24,6 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "mocha": "^7.1.1",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.3"
   }
 }

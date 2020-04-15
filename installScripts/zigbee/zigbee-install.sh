@@ -40,4 +40,4 @@ docker run \
    --name koenkk-zigbee2mqtt \
    --network gate-net \
    --restart=always \
-   koenkk/zigbee2mqtt:1.12.0
+   koenkk/zigbee2mqtt:1.12.2

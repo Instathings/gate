@@ -16,7 +16,7 @@ docker stop node-red
 
 cd /home/node/gate/service/node-red
 
-npm i @instathings/device-in
-npm i @instathings/device-out
+npm i @instathings/node-red-contrib-device-in
+npm i @instathings/node-red-contrib-device-out
 
 docker start node-red

@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - bumped to Node.js v12.16.2
 - handling `@instathings/gate-addon-modbus` dependency
-- added ENTRYPOINT to Dockerfile
+- added ENTRYPOINT to  Dockerfile
 
 ## [1.4.1] - 2020-04-15
 ### Changed

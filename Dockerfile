@@ -11,4 +11,4 @@ RUN npm install
 VOLUME /home/gate/config
 VOLUME [ "/home/node/gate/service" ]
 ENV DEBUG gate
-ENTRYPOINT [ "node", "index.js" ]
+CMD node index.js

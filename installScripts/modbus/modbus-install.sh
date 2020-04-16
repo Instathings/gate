@@ -1,10 +1,8 @@
 CONTAINER_NAME='eclipse-mosquitto'
 
 CID=$(docker ps -q -f status=running -f name=^/${CONTAINER_NAME}$)
-
 # Check if a container named eclipse-mosquitto is running
 if [ ! "${CID}" ]; then
-   # mosquitto configuration
    cd /home/node/gate/service
    mkdir mosquitto
    cd mosquitto
@@ -14,8 +12,8 @@ if [ ! "${CID}" ]; then
    chmod -R 777 config
    chmod -R 777 data
    chmod -R 777 log
-   cp /home/node/gate/installScripts/zigbee/mosquitto/mosquitto.conf /home/node/gate/service/mosquitto/config
-   # mosquitto container
+   cp /home/node/gate/installScripts/zigbee/mosquitto/mosquitto.conf /home/node/gate/service/mosquitto/config  
+
    docker run -dt \
    -p 1883:1883 -p 9001:9001 \
    -v /home/$HOST_USERNAME/service/mosquitto/config:/mosquitto/config \
@@ -26,24 +24,25 @@ if [ ! "${CID}" ]; then
    --restart=always \
    eclipse-mosquitto:1.6.9
 fi
-# zigbee2mqtt
+
+# modbus
 cd /home/node/gate/service
-mkdir zigbee2mqtt
-chmod -R 777 zigbee2mqtt
-cd zigbee2mqtt
+mkdir modbus
+chmod -R 777 modbus
+cd modbus
 mkdir data
 chmod -R 777 data
-cp /home/node/gate/installScripts/zigbee/zigbee2mqtt/configuration.yaml /home/node/gate/service/zigbee2mqtt/data/configuration.yaml
+cp /home/node/gate/installScripts/modbus/modbus2mqtt/configuration.yaml /home/node/gate/service/modbus/data/configuration.yaml
 
 
 docker run \
    -dt \
-   -v /home/$HOST_USERNAME/service/zigbee2mqtt/data:/app/data \
-   --device=/dev/ttyACM0 \
+   -v /home/$HOST_USERNAME/service/modbus/data:/app/data \
+   --device=/dev/ttyUSB0 \
    -e TZ=GMT \
    -v /run/udev:/run/udev:ro \
    --privileged=true \
-   --name koenkk-zigbee2mqtt \
+   --name instathings-modbus2mqtt \
    --network gate-net \
    --restart=always \
-   koenkk/zigbee2mqtt:1.12.2
+   instathings/modbus2mqtt:1.0.1

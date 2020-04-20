@@ -12,11 +12,11 @@ docker run \
    --restart=always \
    nodered/node-red:1.0.4
 
-docker stop node-red
+docker stop nodered-node-red
 
 cd /home/node/gate/service/node-red
 
 npm i @instathings/node-red-contrib-device-in
 npm i @instathings/node-red-contrib-device-out
 
-docker start node-red
+docker start nodered-node-red

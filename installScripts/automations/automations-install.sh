@@ -7,7 +7,7 @@ docker run \
    -p 1880:1880 \
    -v /home/$HOST_USERNAME/service/:/home/node/node-red/service \
    -v /home/$HOST_USERNAME/service/node-red:/data \
-   --name node-red \
+   --name nodered-node-red \
    --network gate-net \
    --restart=always \
    nodered/node-red:1.0.4

@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.4.1] - 2020-04-15
 ### Changed
 - `automations` installs @instathings/node-red-contrib-device-in
-- `automations` installs @instathings/node-red-contrib-device-in
+- `automations` installs @instathings/node-red-contrib-device-out
 - `zigbee` installs `zigbee2mqtt:1.12.2` 
 
 ## [1.4.0] - 2020-04-14

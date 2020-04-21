@@ -45,4 +45,4 @@ docker run \
    --name instathings-modbus2mqtt \
    --network gate-net \
    --restart=always \
-   instathings/modbus2mqtt:1.0.1
+   instathings/modbus2mqtt:1.1.1

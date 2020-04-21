@@ -10,7 +10,7 @@ docker run \
    --name nodered-node-red \
    --network gate-net \
    --restart=always \
-   nodered/node-red:1.0.4
+   nodered/node-red:1.0.5
 
 docker stop nodered-node-red
 

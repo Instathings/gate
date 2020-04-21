@@ -10,5 +10,5 @@ RUN git checkout development
 RUN npm install 
 VOLUME /home/gate/config
 VOLUME [ "/home/node/gate/service" ]
-ENV DEBUG gate
+ENV DEBUG gate:*
 CMD node index.js

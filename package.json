@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "DEBUG=gate ./node_modules/nodemon/bin/nodemon.js index.js",
+    "start": "DEBUG=gate:* ./node_modules/nodemon/bin/nodemon.js index.js",
     "test": "make test-all"
   },
   "author": "",

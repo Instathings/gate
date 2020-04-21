@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.4.3] - 2020-04-20
+## [1.4.4] - 2020-04-20
 ### Changed
 - bumped `modbus2mqtt` to v1.1.1
 - bumped `node-red` to v1.0.5

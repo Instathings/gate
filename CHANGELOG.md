@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2020-04-22
+### Changed
+- splitted stdout and stderr log stream
+- when reporting log adding type
+
 ## [1.4.4] - 2020-04-20
 ### Changed
 - bumped `modbus2mqtt` to v1.1.1

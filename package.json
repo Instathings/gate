@@ -1,10 +1,10 @@
 {
   "name": "gate",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "DEBUG=gate ./node_modules/nodemon/bin/nodemon.js index.js",
+    "start": "DEBUG=gate:* ./node_modules/nodemon/bin/nodemon.js index.js",
     "test": "make test-all"
   },
   "author": "",

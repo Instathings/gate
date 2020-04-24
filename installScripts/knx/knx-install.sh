@@ -25,14 +25,25 @@ if [ ! "${CID}" ]; then
    eclipse-mosquitto:1.6.9
 fi
 
-# knx
+# knx 
 cd /home/node/gate/service
 mkdir knx
 chmod -R 777 knx
 cd knx
 mkdir data
 chmod -R 777 data
-cp /home/node/gate/installScripts/knx/knx2mqtt/configuration.yaml /home/node/gate/service/knx/data/configuration.yaml
+cd data
+cat > configuration.yaml <<EOL
+mqtt:
+  base_topic: knx2mqtt
+  server: 'mqtt://eclipse-mosquitto'
+knx:
+  ip_address: $1
+  port: $2
+advanced:
+  log_output:
+    - console
+EOL
 
 docker run \
 -dt \

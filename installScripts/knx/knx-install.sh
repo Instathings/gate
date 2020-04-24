@@ -44,6 +44,7 @@ advanced:
   log_output:
     - console
 EOL
+docker pull instathings/knx2mqtt:1.0.0
 
 docker run \
 -dt \
@@ -54,5 +55,5 @@ docker run \
 --name instathings-knx2mqtt \
 --network gate-net \
 --restart=always \
-instathings/knx2mqtt:staging
+instathings/knx2mqtt:1.0.0
 

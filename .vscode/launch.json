@@ -13,7 +13,7 @@
       ],
       "program": "${workspaceFolder}/index.js",
       "env": {
-        "DEGUG": "*"
+        "DEGUG": "gate:*"
       },
     }
   ]

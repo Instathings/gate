@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - log `onData` event
 
+## [1.6.0] - 2020-04-28
+### Addedd
+- install script for knx protocol
+- handling `@instathings/gate-addon-knx` dependency
+### Changed
+- splitted stdout and stderr log stream
+
 ## [1.5.0] - 2020-04-22
 ### Changed
 - splitted stdout and stderr log stream

@@ -6,6 +6,7 @@ on:
       - development
     tags:
 
+
 jobs:
   buildx:
     runs-on: ubuntu-latest
@@ -28,6 +29,12 @@ jobs:
       -
         name: run
         run: ls -la 
+      -
+        name: Docker version
+        run: docker --version
+      -
+        name: Buildx version
+        run: docker buildx version
       -
         name: Set up Docker Buildx
         id: buildx

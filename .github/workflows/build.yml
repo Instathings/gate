@@ -37,7 +37,7 @@ jobs:
         id: buildx
         uses: crazy-max/ghaction-docker-buildx@v1
         with:
-          version: v0.3.0
+          version: latest
       -
         name: Available platforms
         run: echo ${{ steps.buildx.outputs.platforms }}
@@ -53,4 +53,4 @@ jobs:
       -
         name: Run Buildx
         run: |
-          docker buildx build --platform linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm64 -t instathings/gate:${{env.TAG}} --file ./Dockerfile --no-cache --push ./
+          docker buildx build --platform linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm64 -t instathings/gate:${{env.TAG}} --file ./Dockerfile --no-cache --push true ./

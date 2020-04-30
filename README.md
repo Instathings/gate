@@ -15,8 +15,9 @@ gate is able to:
 
 and send all these informations to the Cloud.
 
-### Supported Devices
-Instathings supports 600+ devices. The complete list of the devices can be found [here](https://docs.instathings.io/docs/all-devices.html).
+### Supported Protocols
+Instathings supports Zigbee, KNX and Modbus. 
+The complete list of the supported devices can be found [here](https://docs.instathings.io/en/protocols.html).
 
 ### Documentation
 For more information about setting up your gateway  and other guides about Instathings refer to our [docs section](https://docs.instathings.io/docs/guides/gateway-setup.html).

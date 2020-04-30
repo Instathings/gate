@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.1] - 2020-04-30
+### Changed
+- fix logging to cloud
+
 ## [1.6.0] - 2020-04-28
 ### Addedd
 - install script for knx protocol

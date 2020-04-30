@@ -6,6 +6,7 @@ on:
       - development
     tags:
 
+
 jobs:
   buildx:
     runs-on: ubuntu-latest
@@ -29,6 +30,9 @@ jobs:
         name: run
         run: ls -la 
       -
+        name: Docker version
+        run: docker --version
+      -
         name: Set up Docker Buildx
         id: buildx
         uses: crazy-max/ghaction-docker-buildx@v1
@@ -44,6 +48,9 @@ jobs:
         name: echo branch
         run: echo ${{env.TAG}}
       -
+        name: Buildx version
+        run: docker buildx version        
+      -
         name: Run Buildx
         run: |
-          docker buildx build --platform linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm64 -t instathings/gate:${{env.TAG}} --file ./Dockerfile --no-cache --push ./
+          docker buildx build --platform linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm64 -t instathings/gate:${{env.TAG}} --file ./Dockerfile --no-cache --push true ./

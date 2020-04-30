@@ -33,9 +33,6 @@ jobs:
         name: Docker version
         run: docker --version
       -
-        name: Buildx version
-        run: docker buildx version
-      -
         name: Set up Docker Buildx
         id: buildx
         uses: crazy-max/ghaction-docker-buildx@v1
@@ -50,6 +47,9 @@ jobs:
       -
         name: echo branch
         run: echo ${{env.TAG}}
+      -
+        name: Buildx version
+        run: docker buildx version        
       -
         name: Run Buildx
         run: |

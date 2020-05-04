@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.2] - 2020-05-04
+### Changed
+- on timeout discovering remove instance from AddOnHandler
+
 ## [1.6.1] - 2020-04-30
 ### Changed
 - fix logging to cloud

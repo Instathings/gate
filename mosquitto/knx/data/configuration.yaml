@@ -2,7 +2,7 @@ mqtt:
   base_topic: knx2mqtt
   server: 'mqtt://eclipse-mosquitto'
 knx:
-  ip_address: 192.168.145.1
+  ip_address: 172.18.0.1
   port: 3671
 advanced:
   log_output:

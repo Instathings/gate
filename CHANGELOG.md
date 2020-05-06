@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.0] - 2020-05-06
+### Added
+- send all containers logs 
+### Changed
+- wait 1s between `discovering` and `paired` status on pairing a device
+
 ## [1.6.2] - 2020-05-04
 ### Changed
 - on timeout discovering remove instance from AddOnHandler

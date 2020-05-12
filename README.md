@@ -16,7 +16,11 @@ gate is able to:
 and send all these informations to the Cloud.
 
 ### Supported Protocols
-Instathings supports Zigbee, KNX and Modbus. 
+Instathings Gate supports the following protocols:
+- Zigbee via [gate-addon-zigbee](https://github.com/Instathings/gate-addon-zigbee)
+- KNX via [gate-addon-knx](https://github.com/Instathings/gate-addon-knx)
+- Modbus via [gate-addon-modbus](https://github.com/Instathings/gate-addon-modbus)
+
 The complete list of the supported devices can be found [here](https://docs.instathings.io/en/protocols.html).
 
 ### Documentation

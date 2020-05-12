@@ -9,11 +9,10 @@ gate is a free and open fair-code licensed edge computing gateway.
 gate can run on any device able to execute Docker (e.g Raspberry Pi) and it connects your end-devices to the Instathings Cloud.
 
 gate is able to: 
-* collect data coming from your sensors
+* retrieve data from the connected devices and send them to the Instathings Cloud
 * detect new devices
-* get the status of device 
-
-and send all these informations to the Cloud.
+* get the status of a device
+* control the connected devices
 
 ### Supported Protocols
 Instathings Gate supports the following protocols:

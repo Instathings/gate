@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.2] - 2020-05-12
+### Removed
+- `gate-addon-knx` from dependencies
+
 ## [1.7.1] - 2020-05-06
 ### Changed
 - bumped to Zigbee2MQTT v1.13.0

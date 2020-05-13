@@ -1,6 +1,6 @@
 {
   "name": "gate",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,12 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@instathings/gate-addon-http": "file:../gate-addon-http",
     "async": "^3.2.0",
     "aws-iot-device-sdk": "^2.2.4",
     "debug": "^4.1.1",
     "dockerode": "^3.2.0",
     "dotenv": "^8.2.0",
-    "gate-addon-knx": "file:../gate-addon-knx",
     "lodash": "^4.17.15",
     "request": "^2.88.2",
     "shelljs": "^0.8.3"

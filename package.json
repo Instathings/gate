@@ -1,6 +1,6 @@
 {
   "name": "gate",
-  "version": "1.7.0",
+  "version": "1.7.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,6 @@
     "debug": "^4.1.1",
     "dockerode": "^3.2.0",
     "dotenv": "^8.2.0",
-    "gate-addon-knx": "file:../gate-addon-knx",
     "lodash": "^4.17.15",
     "request": "^2.88.2",
     "shelljs": "^0.8.3"

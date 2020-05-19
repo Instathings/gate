@@ -1,4 +1,4 @@
-# Contributing to HTTP2MQTT
+# Contributing to Instathings
 
 👍🎉 First off, thanks for taking the time to contribute! 🎉👍
 

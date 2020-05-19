@@ -8,11 +8,11 @@ The following is a set of guidelines for contributing to Instathings and its pac
 
 [I don't want to read this whole thing, I just have a question!!!](#i-dont-want-to-read-this-whole-thing-i-just-have-a-question)
 
-## I don't want to read this whole thing I just have a question!!!
-
 [How Can I Contribute?](#how-can-i-contribute)
   * [Reporting Bugs](#reporting-bugs)
   * [Suggesting Enhancements](#suggesting-enhancements)
+
+## I don't want to read this whole thing I just have a question!!!
 
 We have an official message board where the community chimes in with helpful advice if you have questions.
 

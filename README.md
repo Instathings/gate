@@ -8,12 +8,14 @@ gate is a free and open fair-code licensed edge computing gateway.
 
 gate can run on any device able to execute Docker (e.g Raspberry Pi) and it connects your end-devices to the Instathings Cloud.
 
+---
 If you are new to Instathings and want to create your application, you should start with the [tutorial](https://docs.instathings.io/docs/guides/gateway-setup.html) on how to setup a gateway.
 
 - What does Instathings do? 🤔 [Read About Instathings](https://docs.instathings.io/docs/guides/introduction.html)
 - I'd like to read the API documentation 🤓 [Read the reference](https://developers.instathings.io/)
 - I have a question ❓[Instathings Community Forum](http://forum.instathings.io/)
 - I would like to contribute 😊[How to contribute](CONTRIBUTING.md)
+---
 
 ### Supported Protocols
 Instathings Gate supports the following protocols:

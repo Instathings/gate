@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.1] - 2020-05-21
+### Added
+- add http2mqtt install script
+
 ## [1.8.0] - 2020-05-21
 ### Added
 - on premise functionality 

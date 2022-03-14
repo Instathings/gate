@@ -30,6 +30,6 @@ The complete list of the supported devices can be found [here](https://docs.inst
 For more information about setting up your gateway  and other guides about Instathings refer to our [docs section](https://docs.instathings.io/docs/guides/gateway-setup.html).
 
 ### License
-gate is [fair-code](https://faircode.io/) licensed under [**Apache 2.0 with Commons Clause**](https://github.com/Instathings/gate/blob/master/LICENSE.md)
+gate is [fair-code](https://faircode.io/) licensed under [**Apache 2.0 with Commons Clause**](https://github.com/Instathings/gate/blob/master/LICENSE.md) 
 
 

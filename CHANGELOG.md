@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.2] - 2022-05-10
+### Changed
+- modbus2mqtt container version in installation script
+- removed set-env statements in workflow files
+
 ## [1.8.1] - 2020-05-21
 ### Added
 - add http2mqtt install script

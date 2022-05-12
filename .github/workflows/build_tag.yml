@@ -38,17 +38,13 @@ jobs:
         run: echo ${{ steps.buildx.outputs.platforms }}
       -
         name: set up image tag
-        run: echo ::set-env name=TAG::${GITHUB_REF/refs\/tags\/v/}
-      -
-        name: set up image tag
         run: sed -i "s/RUN git checkout development/#/g" Dockerfile
       -
         name: cat
         run: cat Dockerfile
       -
-        name: echo tag
-        run: echo ${{env.TAG}}
-      -
         name: Run Buildx
         run: |
-          docker buildx build --platform linux/arm/v7,linux/arm64,linux/amd64 -t instathings/gate:${{env.TAG}} --file ./Dockerfile --no-cache --push ./
+          TAG=${GITHUB_REF/refs\/tags\/v/}
+          echo $TAG
+          docker buildx build --platform linux/arm/v7,linux/arm64,linux/amd64 -t instathings/gate:${TAG} --file ./Dockerfile --no-cache --push ./

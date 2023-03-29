@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.8.5] - 2022-01-13
 ### Changed
-- bumped `modbus2mqtt` to version `v1.1.6`
+- bumped `modbus2mqtt` to version `v1.1.6` 
 
 ## [1.8.4] - 2022-09-15
 ### Removed

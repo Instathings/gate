@@ -5,9 +5,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+### Added
+- Custom behaviour `ACTION_REQUEST_AND_UPLOAD` on control topic
+
+## [1.8.5] - 2022-01-13
+### Changed
+- bumped `modbus2mqtt` to version `v1.1.6` 
+
 ## [1.8.4] - 2022-09-15
-### Changed
-- removed package-json
+### Removed
+- `package-lock.json`
+  
 ## [1.8.3] - 2022-09-15
 ### Changed
 - updated modbus2mqtt docker image in modbus installation script

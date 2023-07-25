@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.9.1] - 2022-07-25
+### Changed
+- bumped `modbus2mqtt` to version `v2.0.0` 
+
+## [1.9.0] - 2022-04-03
 ### Added
 - Custom behaviour `ACTION_REQUEST_AND_UPLOAD` on control topic
 

@@ -1,6 +1,8 @@
 FROM node:12.16.2
 RUN sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list
+RUN sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list.d
 RUN sed -i s/security.debian.org/archive.debian.org/g /etc/apt/sources.list
+RUN sed -i s/security.debian.org/archive.debian.org/g /etc/apt/sources.list.d
 RUN apt-get update
 RUN apt-get install -y git nano
 USER node
